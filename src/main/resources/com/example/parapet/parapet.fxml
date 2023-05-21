@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.Scene?>
+
+<?import javafx.scene.image.Image?>
+<StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.parapet.HelloController" stylesheets="@style.css">
+<children>
+    <SplitPane dividerPositions="0.25" xmlns:fx="http://javafx.com/fxml/1" fx:id="splitPane" >
+        <items>
+            <VBox>
+                <Accordion>
+                    <panes>
+                        <TitledPane text="Wykresy" fx:id="wykresyPane">
+                            <content>
+                                <VBox>
+                                    <Button text="Ususzone" onAction="#handleWykresKolowy" fx:id="ususzoneButton"/>
+                                    <Button text="Gatunki" onAction="#handleWykresBar" fx:id="gatunkiButton" />
+                                </VBox>
+                            </content>
+                        </TitledPane>
+                    </panes>
+                </Accordion>
+                <Accordion>
+                    <panes>
+                        <TitledPane text="Funkcje" fx:id="funkcjePane">
+                            <content>
+                                <VBox>
+                                    <Button text="Nowy kwiatek" onAction="#handlenowyKwiatek" fx:id="dodajButton"/>
+                                    <Button text="Umyj parapet" onAction="#handleumyjParapet" fx:id="umyjButton"/>
+                                    <Button text="Usuń kwiateks" onAction="#handlewyrzucKwiatka" fx:id="usunButton"/>
+                                </VBox>
+                            </content>
+                        </TitledPane>
+                    </panes>
+                </Accordion>
+            </VBox>
+            <ScrollPane prefWidth="400" prefHeight="200">
+                <StackPane fx:id="stackPane">
+                    <children>
+                        <HBox fx:id="parapet">
+                            <ImageView>
+                                <image>
+                                    <Image url="@parapet.jpg"/>
+                                </image>
+                            </ImageView>
+                            <ImageView>
+                                <image>
+                                    <Image url="@parapet.jpg"/>
+                                </image>
+                            </ImageView>
+                            <ImageView>
+                                <image>
+                                    <Image url="@parapet.jpg"/>
+                                </image>
+                            </ImageView>
+                        </HBox>
+                        <HBox fx:id="hbox">
+                        </HBox>
+                    </children>
+                </StackPane>
+            </ScrollPane>
+        </items>
+    </SplitPane>
+</children>
+</StackPane>
+

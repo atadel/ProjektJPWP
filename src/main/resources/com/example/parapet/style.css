@@ -1,0 +1,99 @@
+/* style.css */
+
+.button {
+    -fx-background-color: #3fb648; /* Kolor tła przycisku */
+    -fx-text-fill: white; /* Kolor tekstu */
+    -fx-font-size: 12px; /* Rozmiar czcionki */
+    -fx-padding: 10px 10px; /* Wewnętrzny odstęp */
+    -fx-border-radius: 25px; /* Zaokrąglenie rogów */
+    -fx-spacing: 5;
+    -fx-pref-width: 120px; /* Preferowana szerokość przycisku */
+}
+
+.button:hover {
+    -fx-background-color: #38a23d; /* Kolor tła przycisku po najechaniu */
+}
+
+.button:pressed {
+    -fx-background-color: #398038; /* Kolor tła przycisku po wciśnięciu */
+}
+
+/* Styl dla TitledPane */
+.titled-pane {
+    -fx-background-color: transparent; /* Kolor tła przycisku */
+    -fx-text-fill: black; /* Kolor tekstu */
+    -fx-font-size: 12px; /* Rozmiar czcionki */
+    -fx-padding: 5px 5px; /* Wewnętrzny odstęp */
+    -fx-border-radius: 5px; /* Zaokrąglenie rogów */
+}
+.titled-pane .title{
+    -fx-background-color: #fce0cc;
+}
+
+.accordion .titled-pane>*.content {
+    -fx-background-color: transparent;
+    -fx-padding: 0px 0px; /* Wewnętrzny odstęp */
+}
+.accordion VBox {
+    -fx-spacing: 10;
+}
+
+VBox {
+    -fx-background-color: #FDF5E6;
+}
+HBox > VBox {
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+    -fx-spacing: 10;
+}
+
+.combo-box {
+    -fx-font-size: 12px;
+    -fx-padding: 5px;
+    -fx-background-color: #fce0cc;
+    -fx-text-fill: black;
+    -fx-alignment: center;
+    -fx-pref-width: 120px;
+}
+.combo-box .text {
+    -fx-text-fill: white; }
+
+
+.combo-box .list-view {
+    -fx-font-size: 12px;
+    -fx-background-color: #FDF5E6;
+    -fx-control-inner-background: #FDF5E6;
+    -fx-alignment: center;
+}
+
+/*.combo-box .list-cell:selected {
+    -fx-alignment: center; /* Wyśrodkowanie tekstu
+}*/
+
+
+.combo-box .list-view .list-cell {
+    -fx-padding: 5px;
+    -fx-alignment: center;
+}
+
+
+.combo-box .list-view .list-cell:selected {
+    -fx-background-color: #fce0cc;
+    -fx-text-fill: black;
+    -fx-alignment: center;
+}
+.combo-box .list-view .list-cell:hover{
+    -fx-background-color:#fce0cc;
+    -fx-text-fill: black;
+}
+/*to co się wyświetla w comboboxie u góry*/
+.combo-box .list-cell:selected {
+    -fx-text-fill:black;
+}
+
+.data0.chart-pie { -fx-pie-color: #fdbc71; }
+.data1.chart-pie { -fx-pie-color: #24cc24; }
+
+.chart-bar {
+    -fx-bar-fill: #2ea839;
+}
