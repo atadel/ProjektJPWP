@@ -88,13 +88,11 @@ public class Roslina {
                 }
 
                 // Utworzenie etykiety z przeskalowanym obrazkiem i dodanie jej do panelu
-
                 imageLabel.setIcon(scaledIcon);
                 pusty.setPreferredSize(new Dimension(szerokoscPanelu, wysokoscParapetu- 100 -((int)scaledIcon.getIconHeight())));
                 kwiatek.add(imageLabel);
                 imageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                 imageLabel.setAlignmentY(wysokoscParapetu-scaledIcon.getIconHeight());
-
                 kwiatek.revalidate();
                 kwiatek.repaint();
             }

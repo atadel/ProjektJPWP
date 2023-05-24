@@ -2,13 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.ArrayList;
 
 public class Parapet {
     // komponenty
-    static public JFrame frame = new JFrame("Wirtualny Parapet <3");
+    static public JFrame frame = new JFrame("Wirtualny Parapet ❤");
     static public JPanel panelGuziki = new JPanel();
     static public JPanel panelRosliny = new JPanel();
     static public int wysokosc = 500;
@@ -95,6 +94,11 @@ public class Parapet {
         panelGuziki.add(ileKwiatkowZabilam);
         panelGuziki.add(usunKwiatek);
 
+        panelGuziki.revalidate();
+        panelGuziki.repaint();
+
+        frame.revalidate();
+        frame.repaint();
 
         // actionListenery do guzików
         utworzKwiatek.addActionListener(new ActionListener() {
@@ -103,7 +107,9 @@ public class Parapet {
                 kwiatki.add(roslina);
                 JPanel panelPomocniczy = new JPanel();
                 //panelPomocniczy.setPreferredSize(new Dimension(roslina.getKwiatek().getHeight(), roslina.getKwiatek().getWidth()));
-                panelPomocniczy.add(roslina.getKwiatek());
+                panelPomocniczy.setLayout(new BorderLayout());
+                panelPomocniczy.add(roslina.getKwiatek(), BorderLayout.CENTER);
+
                 panelPomocniczy.setOpaque(false);
                 //panelPomocniczy.setBackground(Color.pink);
                 panelRosliny.add(panelPomocniczy);
@@ -178,14 +184,21 @@ public class Parapet {
 
                 // dodawanie tego co ma zostać w panelu
                 for (int i=0; i< kwiatki.size(); i++) {
-                    panelRosliny.add(kwiatki.get(i).getKwiatek());
+
+                    JPanel panelPomocniczy = new JPanel();
+                    panelPomocniczy.setLayout(new BorderLayout());
+
+                    panelPomocniczy.add(kwiatki.get(i).getKwiatek(), BorderLayout.CENTER);
+                    panelPomocniczy.setOpaque(false);
+                    panelRosliny.add(panelPomocniczy);
+                    panelRosliny.repaint();
+
                 }
             }
 
         });
 
     }
-
 
 
     public List<Roslina> getKwiatki() {
@@ -197,12 +210,3 @@ public class Parapet {
     }
 
 }
-
-    
-    
-    
-    
-    
-    
-    
-   
