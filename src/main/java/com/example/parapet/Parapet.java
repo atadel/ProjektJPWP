@@ -17,11 +17,12 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
-
+import org.jfugue.player.Player;
 public class Parapet extends Application {
     int ususzone = 0;
     int wszystkie = 0;
     int max = 10;
+
 
     //metody
     public void ususz(ImageView view){
@@ -51,6 +52,10 @@ public class Parapet extends Application {
             view.setEffect(reflection);
             ususzone -=1;
         }
+        //Player player = new Player();
+        //player.play("");
+        //player.play("Ab6i G6i Gb6i F6h");
+
     }
 
     public void zmianaKwiatka(ImageView view, String nazwa) throws IOException {
@@ -87,8 +92,8 @@ public class Parapet extends Application {
             sepiaButton.setOnAction(event -> ususz(widok));
 
             //vbox.getChildren().addAll(combo, spacer, widok, sepiaButton);
-            vbox.getChildren().addAll(combo, sepiaButton, spacer, widok, bottom);
             //vbox.getChildren().addAll(combo, widok, sepiaButton);
+            vbox.getChildren().addAll(combo, sepiaButton, spacer, widok, bottom);
             VBox.setVgrow(spacer, Priority.ALWAYS);
             //vbox.setPadding(new Insets(8));
             hbox.getChildren().add(vbox);
@@ -209,7 +214,6 @@ public class Parapet extends Application {
         alert.show();
     }
 
-
     @Override
     public void start(Stage primaryStage) throws IOException {
         HBox hbox = new HBox();
@@ -221,10 +225,13 @@ public class Parapet extends Application {
         */
 
         //guziki
+
+        //Button stronaButton = new Button("Otwórz stronę");
+        //stronaButton.setOnAction(event->stronaWebowa());
+
+        //guziki
         Button PieChartButton = new Button("Ususzone");
-        PieChartButton.setOnAction(event -> {
-            wykresKolowy();
-        });
+        PieChartButton.setOnAction(event -> wykresKolowy());
 
         Button dodajButton = new Button("Nowy kwiatek");
         dodajButton.setOnAction(event-> nowyKwiatek(hbox));
@@ -235,8 +242,19 @@ public class Parapet extends Application {
         Button umyjButton = new Button("Umyj parapet");
         umyjButton.setOnAction(event ->umyjParapet(hbox));
 
-        Button usunButton = new Button("Usuń kwiateks");
+        Button usunButton = new Button("Usuń kwiatek");
         usunButton.setOnAction(event->wyrzucKwiatka(hbox));
+
+        Button closeButton = new Button("Zamknij aplikację");
+        closeButton.setStyle("-fx-background-color: #ff2814;");
+        closeButton.setOnAction(event -> {
+            // Wywołanie funkcji
+            Player playerClose = new Player();
+            playerClose.play("");
+            playerClose.play("rh Ab6i+Ab3i Eb6i Ab5i Bb5h+Bb3h+Eb4h+F4h");
+            // Zamknięcie aplikacji
+            primaryStage.close();
+        });
 
         //panel boczny
         VBox wykresy = new VBox();
@@ -244,8 +262,12 @@ public class Parapet extends Application {
         TitledPane wykresyPane = new TitledPane("Wykresy", wykresy);
 
         VBox funkcje = new VBox();
-        funkcje.getChildren().addAll(dodajButton,umyjButton,usunButton);
+        funkcje.getChildren().addAll(dodajButton,umyjButton,usunButton,closeButton);
         TitledPane funkcjePane = new TitledPane("Funkcje",funkcje);
+        //Pane pane = new Pane();
+        //Button test = new Button("test");
+        //pane.getChildren().add(test);
+        //funkcjePane.setContent(pane);
 
         Accordion accordion = new Accordion();
         Accordion accordion2 = new Accordion();
@@ -278,7 +300,7 @@ public class Parapet extends Application {
         Scene scene = new Scene(splitPane, 612*4/3, 408);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
-        primaryStage.setTitle("Wirtualny parapet");
+        primaryStage.setTitle("Wirtualny parapet ❤");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

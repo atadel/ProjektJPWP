@@ -220,6 +220,12 @@ public class HelloController {
         alert.show();
     }
 
+    //panele
+    @FXML
+    HBox hbox = new HBox();
+    @FXML
+    HBox parapet = new HBox();
+
     //guziki
     @FXML
     Button ususzoneButton;
@@ -231,12 +237,6 @@ public class HelloController {
     Button usunButton;
     @FXML
     Button umyjButton;
-
-    //panele
-    @FXML
-    HBox hbox = new HBox();
-    @FXML
-    HBox parapet = new HBox();
 
     //metody
     public void handleWykresKolowy(ActionEvent actionEvent) {
